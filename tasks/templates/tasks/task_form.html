@@ -1,0 +1,107 @@
+<!-- tasks/templates/tasks/task_form.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Edit Task
+    {% else %}
+        Add Task
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title mt-2">
+                        {% if form.instance.pk %}
+                            Edit Task
+                        {% else %}
+                            Add Task
+                        {% endif %}
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label for="{{ form.title.id_for_label }}" class="col-md-3 col-form-label text-md-right">Task Title:</label>
+                            <div class="col-md-9">
+                                {{ form.title }}
+                                {% for error in form.title.errors %}
+                                    <small class="text-danger">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="{{ form.description.id_for_label }}" class="col-md-3 col-form-label text-md-right">Description:</label>
+                            <div class="col-md-9">
+                                {{ form.description }}
+                                {% for error in form.description.errors %}
+                                    <small class="text-danger">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="{{ form.reminder_time.id_for_label }}" class="col-md-3 col-form-label text-md-right">Reminder Time:</label>
+                            <div class="col-md-9">
+                                {{ form.reminder_time }}
+                                {% for error in form.reminder_time.errors %}
+                                    <small class="text-danger">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label text-md-right">Set Reminder:</label>
+                            <div class="col-md-9">
+                                <div class="form-check mb-2">
+                                    {{ form.is_reminder_set }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label text-md-right">Completed:</label>
+                            <div class="col-md-9">
+                                <div class="form-check">
+                                    {{ form.completed }}
+                            
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label text-md-right">Task Type:</label>
+                            <div class="col-md-9">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-outline-primary {% if form.task_type.value == 'personal' %}active{% endif %}" >
+                                        <input type="radio" name="task_type" value="personal" autocomplete="off" {% if form.task_type.value == 'personal' %}checked{% endif %}> Personal
+                                    </label>
+                                    <label class="btn btn-outline-primary {% if form.task_type.value == 'work' %}active{% endif %}" >
+                                        <input type="radio" name="task_type" value="work" autocomplete="off" {% if form.task_type.value == 'work' %}checked{% endif %}> Work
+                                    </label>
+                                </div>
+                                {% for error in form.task_type.errors %}
+                                    <small class="text-danger">{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-9 offset-md-3">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                                <a href="{% url 'task-list' %}" class="btn btn-secondary"><i class="fa fa-times"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
