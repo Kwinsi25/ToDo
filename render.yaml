@@ -1,0 +1,4 @@
+services:
+  - name: web
+    env: python manage.py runserver 0.0.0.0:$PORT
+    port: 8000  # Specify the port your Django app is listening on
