@@ -1,0 +1,8 @@
+asgiref
+Django
+pip
+pytz
+six
+sqlparse
+tzdata
+tzlocal
