@@ -30,26 +30,20 @@
 
         .sidebar {
             height: calc(100vh - 20px);
-            /* Adjust height to account for the top gap */
             width: 250px;
-            /* Adjust width as needed */
             background-color: #eceff1;
             position: fixed;
             left: 10px;
-            /* Add left margin */
             top: 10px;
-            /* Add top margin */
             overflow-x: hidden;
             padding-top: 20px;
             transition: width 0.5s;
-            /* Add transition for smoother animation */
             border-radius: 15px;
 
         }
 
         .sidebar.closed {
             width: fit-content;
-            /* Set the width of closed sidebar */
         }
 
         .sidebar .sidebar-header {
@@ -78,7 +72,6 @@
             margin: 0;
             display: block;
             transition: opacity 0.5s, width 0.5s;
-            /* Add transition for smoother animation */
         }
 
         .sidebar.closed .sidebar-header h3 {
@@ -108,13 +101,11 @@
             display: flex;
             align-items: center;
             transition: padding 0.5s;
-            /* Add transition for smoother animation */
         }
 
         .sidebar.closed a {
             padding: 0;
             width: 60px;
-            /* Set the width of closed sidebar */
             justify-content: center;
         }
 
@@ -122,7 +113,6 @@
             margin-right: 8px;
             display: inline-block;
             transition: margin-right 0.5s;
-            /* Add transition for smoother animation */
         }
 
         .sidebar.closed a .icon {
@@ -132,7 +122,6 @@
         .sidebar a .text {
             display: inline-block;
             transition: opacity 0.5s, padding-left 0.5s;
-            /* Add transition for smoother animation */
             opacity: 1;
             padding-left: 5px;
         }
@@ -154,17 +143,13 @@
 
         .content {
             margin-left: auto;
-            /* Adjust to accommodate sidebar width */
             padding: 50px;
             transition: margin-left 0.5s;
-            /* Add transition for smoother animation */
             width: calc(100% - 200px);
-            /* Calculate width based on sidebar width */
         }
 
         .sidebar.closed~.content {
             margin-left: 60px;
-            /* Adjust to accommodate closed sidebar width */
         }
 
         @media screen and (max-width: 768px) {
@@ -186,20 +171,18 @@
             }
         }
 
-        /* Positioning the form at the top right corner */
         .top-right-corner {
             position: absolute;
             top: 20px;
             right: 20px;
         }
 
-        /* Styling for Add Task button */
         .add-task-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 1000;
-            /* Ensure button is above other elements */
+
         }
 
         .sidebar a .icon {
@@ -211,47 +194,35 @@
             width: 8px;
             height: 8px;
             margin-right: 5px;
-            /* Adjust as needed */
         }
 
         .sidebar a .icon.personal .fa-square {
             color: #FFC107;
-            /* Personal tasks color */
         }
 
         .sidebar a .icon.work .fa-square {
             color: #2196F3;
-            /* Work tasks color */
         }
 
         .count-badge {
             background-color: #007bff;
-            /* Badge background color */
             color: #fff;
-            /* Text color */
             border-radius: 50%;
-            /* Make it round */
             font-size: 12px;
-            /* Adjust font size */
             padding: 4px 8px;
-            /* Adjust padding */
             margin-left: 8px;
-            /* Space between text and badge */
         }
-
-        
 
         .notification-icon {
         position: absolute;
-        top: 10px;
-        /* right: 0; */
-        font-size: 0.75rem; /* Adjust size as needed */
-        color: red; /* Adjust color as needed */
+        top: 10px;       
+        font-size: 0.75rem;
+        color: red;
     }
 
     .icon.personal i,
     .icon.work i {
-        margin-right: 5px; /* Adjust margin as needed */
+        margin-right: 5px;
     }
     </style>
 </head>
